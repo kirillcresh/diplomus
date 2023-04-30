@@ -4,7 +4,8 @@ from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(os.path.abspath(BASE_DIR / '.env'))
+CONFIG_DIR = Path(__file__).resolve().parent.parent.parent
+load_dotenv(os.path.abspath(CONFIG_DIR / 'config' / '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = True
