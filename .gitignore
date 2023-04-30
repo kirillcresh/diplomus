@@ -10,4 +10,4 @@ papaya/orders/migrations/
 papaya/orders/__pycache__/
 papaya/shop/migrations/
 papaya/main/static/
-papaya/media/
+/papaya/media/
