@@ -1,4 +1,3 @@
-/config/
 /.idea/
 /papaya/db.sqlite3
 papaya/main/__pycache__/
@@ -11,3 +10,4 @@ papaya/orders/__pycache__/
 papaya/shop/migrations/
 papaya/main/static/
 /papaya/media/
+/config/
