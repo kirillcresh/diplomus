@@ -4,7 +4,192 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ff89688-615c-41a7-be66-89daa0c19984" name="Changes" comment="" />
+    <list default="true" id="3ff89688-615c-41a7-be66-89daa0c19984" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/about_index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/cart_detail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/contacts_index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/main_index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/main_login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/main_register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/manage_news.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/manage_order.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/manage_shop.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/manager.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/news_detail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/news_index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/orders_detail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/orders_index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/shop_detail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/shop_index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/css/site.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/10фактов.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/7Wonders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Beast.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Paris.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Small-World.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Unmatched-Cobble-Fog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/codenames.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/dc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/dicemain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/igroteka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/inish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/mainback.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/pandemic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/planet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/planet2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/small.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/spyfall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/tiptop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/tower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/tower2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Каркассон.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Каркассон2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/Петля.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/киклады.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/королевство.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/опасные.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/плэйматКодекс.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/плэйматКорни.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/протектор1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/протектор2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/протектор3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/img/ужас.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/papaya.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/static/main/papaya1.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/contacts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/templates/main/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/main/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/10фактов.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/10фактов_AG3mB45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/7Wonders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Beast.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Paris.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Paris_fQ6ndSp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Small-World.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Unmatched-Cobble-Fog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/codenames.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/dc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/dicemain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/igroteka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/inish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/inst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/inst_k4IJeiB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/inst_wFHsNlm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/pandemic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_5EMKycL.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_7fcj3o4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_8l6aTb8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_8vlQYWg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_BI2wEIu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_J0LOUku.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_Mlk2QyF.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_aP6tGjf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/papai_ntETNZ6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/planet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/planet2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/spyfall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/tiptop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/tower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/tower2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Каркассон.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Каркассон2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/Петля.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/киклады.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/королевство.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/плэйматКодекс.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/плэйматКорни.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/протектор1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/протектор2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/протектор3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/media/images/ужас.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/templates/news/create_news.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/templates/news/edit_news.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/templates/news/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/templates/news/manage_news.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/templates/news/news_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/news/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/templates/orders/cart_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/templates/orders/edit_order.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/templates/orders/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/templates/orders/manage_order.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/templates/orders/orders_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/orders/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/papaya/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/papaya/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/papaya/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/papaya/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/papaya/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/0002_games_delete_target.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/0003_remove_games_pub_date_games_is_active_games_price.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/0004_comment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/0005_comment_game.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/0006_alter_comment_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/templates/shop/create_shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/templates/shop/edit_shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/templates/shop/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/templates/shop/manage_shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/templates/shop/shop_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/papaya/shop/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,8 +220,9 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "F:/Programming/diplomus",
-    "settings.editor.selected.configurable": "Ignore Files Support"
+    "last_opened_file_path": "F:/Programming/diplomus/.gitignore",
+    "settings.editor.selected.configurable": "Ignore Files Support",
+    "two.files.diff.last.used.file": "F:/Programming/diplomus/.gitignore"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -46,6 +232,8 @@
       <recent name="F:\Programming\project\papaya\news\templates\news" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Programming\diplomus" />
+      <recent name="F:\Programming\diplomus\papaya" />
       <recent name="F:\Programming\diplomus\config" />
     </key>
   </component>

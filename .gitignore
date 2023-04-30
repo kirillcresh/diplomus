@@ -1,0 +1,13 @@
+/config/
+/.idea/
+/papaya/db.sqlite3
+papaya/main/__pycache__/
+papaya/main/migrations/
+papaya/shop/__pycache__/
+papaya/news/migrations/
+papaya/news/__pycache__/
+papaya/orders/migrations/
+papaya/orders/__pycache__/
+papaya/shop/migrations/
+papaya/main/static/
+papaya/media/
