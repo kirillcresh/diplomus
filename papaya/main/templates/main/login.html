@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Вход{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/main_login.css' %}">
+{% endblock %}
+
+{% block style %}
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="razmetka" style="color: #4cb2ede3"><strong>Войти в аккаунт</strong></div>
+    <div class="div_form">
+        <div class="form">
+            <form method="POST" >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-outline-info" style="margin-left: 40%;" > Войти </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

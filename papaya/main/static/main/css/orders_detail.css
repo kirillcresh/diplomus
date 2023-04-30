@@ -1,0 +1,45 @@
+.space{
+    display:flex;
+    justify-content:space-around;
+}
+
+.title {
+    display:flex;
+    font-size: 30px;
+    margin-left: 35px;
+}
+
+.info_block {
+    display:flex;
+    font-size: 32px;
+    margin: 1% 0 0 3%;
+    flex-direction:column;
+    width: 30%;
+    align-items:center
+
+}
+
+.info_block > a {
+    margin: 0 0 0 2%;
+}
+.content_block {
+    display: flex;
+
+    align-items: center;
+}
+
+picture {
+    width: 45%;
+}
+
+picture img {
+    width: 100%;
+    margin: 2% 0 2% 0;
+}
+
+.endprice {
+    display:flex;
+    margin: 2% 0 2% 15%;
+    font-size: 32px;
+    text-decoration: underline;
+}

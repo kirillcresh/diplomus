@@ -1,0 +1,28 @@
+.contacts {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.telo {
+    width: 100%;
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+.podval {
+    display: flex;
+    justify-content: center;
+    height: 4vh;
+    width: 100%;
+    background: #f07373;
+}
+
+.podval > a {
+    margin: 0 0 0 2%;
+    font-size: 24px;
+    color: green;
+}

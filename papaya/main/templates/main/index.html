@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Papaya главная{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/main_index.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+.contain {
+    background: url(static/main/img/mainback.jpg) no-repeat;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contain">
+
+</div>
+    {% if last_news %}
+<div class="lastnews">
+    <b>Последние новости</b>
+</div>
+       <div class="news">
+
+    {% for new in last_news %}
+        <div class="new">
+            <a href="{% url 'news:news_detail' new.id %}"> {{ new.title }} </a>
+            <a style="width: 90%;" href="{{ new.get_absolute_url }}">
+                <picture>
+                    <img src="{{ new.picture.url }}">
+                </picture>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <a>Жди новостей</a>
+{% endif %}
+
+{% endblock %}

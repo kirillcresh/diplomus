@@ -1,0 +1,35 @@
+.header {
+    width: 100%;
+    height: 7vh;
+    background-color: 99f29c;
+    display: flex;
+    align-items: center;
+    flex-direction:row;
+}
+body {
+
+    background-blend-mode: screen;
+    background: linear-gradient(limegreen, transparent), linear-gradient(90deg, skyblue, transparent), linear-gradient(-90deg, coral, transparent);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.middle {
+
+    display: flex;
+    width: 95%
+}
+.header_left, .header_right {
+    display: flex;
+    width: 50%;
+}
+.header_right {
+    justify-content: flex-end;
+}
+.header_right > a {
+    margin: 0 2% 0 0;
+}
+.header_left > a {
+    margin: 0 0 0 2%;
+}

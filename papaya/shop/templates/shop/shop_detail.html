@@ -1,0 +1,77 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}{{ game.title }}{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/shop_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main_login.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page_content">
+    <div class="product_detail">
+        <div class="games_block">
+            <a><b>{{game.title}}</b></a>
+        </div>
+        <div class="kartinka">
+            <picture>
+                <img src="{{ game.picture.url }}">
+                <div class="price">
+                    <a><b>{{game.price}} Р</b></a>
+                </div>
+                {% if user.is_active %}
+                <div class="button">
+                    <a type="button" class="btn btn-outline-info"  href="{% url 'shop:add_to_cart' game.id %}">
+                        Добавить в корзину
+                            <i class="fa fa-plus"></i></a>
+                </div>
+                {% endif %}
+                <a type="button" class="btn btn-outline-success" href="{% url 'shop:main' %}" style="margin: 3% 0 0 35%;">В магазин</a>
+            </picture>
+        </div>
+        <div class="games_block">
+            <div class="text">
+                <a><b>{{game.games|linebreaks}}</b></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="comments">
+        <a>Комментарии:</a>
+        {% if comments %}
+            {% for comment in comments %}
+                {% if comment in game.comment_set.all %}
+                    <div class="user_comment">
+                        <a><strong>{{ comment.author }}</strong> {{ comment.pub_date }}</a>
+                        <a></br>{{ comment.text|linebreaks }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <a>Оставьте комментарий первым</a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            <div class="div_form">
+                <div class="form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-info" style="margin-left: 15%;" > Оставить комментарий </button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <a>Авторизуйтесь, чтобы оставить комментарий</a>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

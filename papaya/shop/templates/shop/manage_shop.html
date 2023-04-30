@@ -1,0 +1,27 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/manage_shop.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="button">
+    <a>Добавить товар</a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-success" href="{% url 'shop:create_shop' %}"><i class="fa fa-plus"></i></a>
+</div>
+{% for game in games %}
+<div class="edit">
+    <a style="margin: 0 0 0 2%;" href="{{ game.get_absolute_url }}">{{ game.title }}</a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-warning" href="{% url 'shop:edit_shop' game.id %}"><i class="fa fa-pen"></i></a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-danger" href="{% url 'shop:delete_shop' game.id %}"><i class="fa fa-trash"></i></a>
+</div>
+{% endfor %}
+{% endblock %}

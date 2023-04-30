@@ -1,0 +1,60 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Магазин{% endblock %}
+
+{% block static %}
+<link rel="stylesheet" href="{% static 'main/css/shop_index.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="razmetka">
+
+    <div class="categories">
+        <p style="margin:1% 0 0 1%; font-size:22px; color: #00131C ">Категории</p>
+        Вы сейчас в {{ title }}
+        <div class="category">
+            <a href="{% url 'shop:main' %}"> Все товары </a>
+        {% for category in categories %}
+                <a href="{% url 'shop:main' %}?name={{ category.id }}"> {{ category.category }} </a>
+
+        {% endfor %}
+            </div>
+    </div>
+
+    <div class="games">
+    {% if games %}
+        {% for game in games %}
+            <div class="game">
+
+                    <picture>
+                        <a href="{{ game.get_absolute_url }}">
+                            <img src="{{ game.picture.url }}"></br>
+                        </a>
+                    </picture>
+                <div class="title">
+                <a href="{% url 'shop:shop_detail' game.id %}"> {{ game.title }} </a> </br>
+                    <a>{{game.price}}Р</a>
+                </div>
+                {% if user.is_active %}
+                <form method="POST">
+                    <a methods="POST" type="button" class="btn btn-outline-info" href="{% url 'shop:add_to_cart' game.id %}">
+                        Добавить в корзину
+                        <i class="fa fa-plus"></i></a>
+                </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <a>Игр пока нет</a>
+    {% endif %}
+    </div>
+
+</div>
+{% endblock %}

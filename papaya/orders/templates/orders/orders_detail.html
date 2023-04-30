@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}{{ ord }}{% endblock %}
+
+{% block static %}
+<link rel="stylesheet" href="{% static 'main/css/orders_detail.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="orders_block">
+    <div class="title">
+        <b>{{ ord }}</b>
+    </div>
+    <div class="space">
+        {% for prod in order_products %}
+        {% for game in games %}
+        {% if game == prod.games_id %}
+            <div class="info_block">
+                    {{ game.title }}
+                <picture>
+                    <img src="{{ game.picture.url }}">
+                </picture>
+                    <a>Кол-во:{{ prod.amount }}</a>
+                    <a>Стоимость: {% widthratio game.price 1 prod.amount %} Р </a>
+            </div>
+            <div class="content_block">
+
+            </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="endprice">
+        <a>Цена заказа: <b>{{ ord.total }} Р </b> </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Корзина{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/cart_detail.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="title">
+        <a><b>Корзина</b></a>
+    </div>
+<div class="orders">
+    {% if order_prods %}
+    <div class="containers">
+        <div class="orders">
+            {% for prod in order_prods %}
+                <div class="razmetka">
+                    <div class="t_id">
+                        <a>{{ prod.games_id }} </a>
+                    </div>
+                    <div class="pricing">
+                    {% for game in games %}
+                        {% if game == prod.games_id %}
+                            <a>{{ game.price }} Р x {{ prod.amount }}</a>
+                            <div class="buttons"><form method="POST">
+                                    <a methods="POST" type="button" class="btn btn-outline-nfo"
+                                       href="{% url 'orders:add_item' prod.id %}">
+                                        <i class="fa fa-plus"></i></a></form>
+                                <form method="POST1">
+                                    <a methods="POST1" type="button" class="btn btn-outline-nfo"
+                                       href="{% url 'orders:remove_item' prod.id %}">
+                                        <i class="fa fa-minus"></i></a></form>
+                            </div>
+                            <a>{% widthratio game.price 1 prod.amount %} Р </a>
+
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            <div><hr></div>
+            {% endfor %}
+        </div>
+        <div class="endprice">
+            <a><b>Общая цена:</b></a>
+            <a>{{ cart.total }} Р </a>
+        </div>
+    </div>
+    <div class="button">
+        <a type="button" class="btn btn-outline-success"  href="{% url 'orders:order_create' %}">Оплатить</a>
+        <a type="button" class="btn btn-outline-danger"  href="{% url 'orders:cart_delete' %}">
+            <i class="fa fa-trash"></i>Очистить корзину</a>
+    </div>
+    {% else %}
+        <a style="font-size: 20px; margin-left: 15px;">Выберите игру, чтобы корзина не была такой пустой :с</a>
+    {% endif %}
+</div>
+{% endblock %}

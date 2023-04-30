@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}О нас{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/about_index.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="razmetka">
+
+        <picture>
+        <img src="{% static 'main/img/54.png' %}" style="width:256px;">
+        </picture>
+
+    <div class="opis">
+        <a>
+            Papaya Games - это интернет магазин настольных игр, где вы точно найдете игру по своему вкусу. Наши продавцы помогут вам
+            выбрать игру под вашу компанию, возраст играющих и желаемое время игры. Мы уверены, что настольная игра может понравиться
+            каждому, только нужно уметь подобрать правильную. Здесь вы найдете игры по приятным ценам
+            с быстрой доставкой. Мы радуем вас своими играми с 2022 года. Окунитесь в мир настольных игр вместе с papaya!
+        </a>
+    </div>
+</div>
+{% endblock %}

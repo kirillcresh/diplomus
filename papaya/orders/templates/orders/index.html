@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Заказы{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/orders_index.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<h4 style="margin: 1% 0 0 3%;">Ваши заказы</h4>
+<div class="orders">
+    {% if orders %}
+        {% for order in orders %}
+            <div class="zaka">
+                <a href="{% url 'orders:orders_detail' order.id %}">{{ order }}</a>
+                <a> на сумму: {{ order.total }} Р</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <a>Заказов нет</a>
+    {% endif %}
+</div>
+{% endblock %}

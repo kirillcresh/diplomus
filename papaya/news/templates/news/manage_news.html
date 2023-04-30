@@ -1,0 +1,27 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/manage_news.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="button">
+    <a>Добавить новость</a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-success" href="{% url 'news:create_news' %}"><i class="fa fa-plus"></i></a>
+</div>
+{% for new in news %}
+<div class="edit">
+    <a style="margin: 0 0 0 2%;" href="{{ new.get_absolute_url }}">{{ new.title }}</a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-warning" href="{% url 'news:edit_news' new.id %}"><i class="fa fa-pen"></i></a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-danger" href="{% url 'news:delete_news' new.id %}"><i class="fa fa-trash"></i></a>
+</div>
+{% endfor %}
+{% endblock %}

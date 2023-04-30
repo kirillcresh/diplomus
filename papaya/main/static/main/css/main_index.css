@@ -1,0 +1,88 @@
+.contain {
+    display: flex;
+    height: 93vh;
+    width: 100%;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 2% 0 0 0;
+}
+
+.title > a {
+    font-size: 48px;
+}
+
+.main {
+    display: flex;
+    margin:5% 0 0 0%;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: white;
+}
+.main img {
+    width: 65%;
+}
+
+.lastnews {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    text-decoration: underline;
+}
+
+
+.news {
+    display: flex;
+    width:90%;
+    margin:0 5% 0 5%;
+    height:50vh;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 25px;
+    color: black
+}
+.new {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3% 0 0 0;
+    width:31.3%;
+    height:50vh;
+    font-size: 25px;
+    color: black
+}
+.new > a {
+    text-decoration: none;
+    color: black;
+}
+
+picture {
+    width: 25%;
+}
+picture img {
+    width: 100%;
+}
+
+.info_block {
+width: 53%;
+display: flex;
+flex-direction: column;
+
+}
+
+.content_block > picture img {
+width: 100%;
+}
+
+.new > a {
+    text-decoration: none;
+    color: black;
+}

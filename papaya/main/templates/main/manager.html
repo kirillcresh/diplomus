@@ -1,0 +1,27 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/manager.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_staff %}
+<div class="manage">
+    <h4 style="margin-left: 25px;">Страница менеджера</h4>
+    <a type="button" class="btn btn-outline-info" href="{% url 'news:manage_news' %}">Управление новостями</a>
+    <a type="button" class="btn btn-outline-warning" href="{% url 'shop:manage_shop' %}">Управление товарами</a>
+    <a type="button" class="btn btn-outline-secondary" href="{% url 'orders:manage_order' %}">Управление заказами</a>
+</div>
+{% endif %}
+
+{% endblock %}

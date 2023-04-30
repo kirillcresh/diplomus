@@ -1,0 +1,58 @@
+.title {
+    display: flex;
+    margin-left: 35px;
+    font-size: 28px;
+    margin:0 5% 0 5%;
+    flex-wrap: wrap;
+}
+
+.containers {
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
+    margin: 3% 0 0 4%;
+    flex-direction: column;
+
+}
+
+
+.orders {
+    width: 70%
+}
+
+.razmetka {
+    display: flex;
+    font-size: 24px;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+
+.razmetka > a {
+    margin: 0 0 0 4%;
+}
+
+.endprice {
+    display: flex;
+    align-items: flex-end;
+    font-size: 30px;
+}
+
+.pricing {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.buttons {
+    display:flex;
+    margin: 1% 0 0 0;
+}
+
+.button {
+    width: 35%;
+    display:flex;
+    justify-content: space-between;
+    margin: 2% 7% 0 10%;
+}
+

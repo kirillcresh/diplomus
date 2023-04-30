@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}{{ new.title }}{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/news_detail.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="news_block">
+    <div class="title">
+        <a><b>{{new.title}}</b></a>
+    </div>
+    <div class="content_block">
+        <div class="pic">
+            <picture>
+                <img src="{{ new.picture.url }}">
+            </picture>
+        </div>
+        <div class="info_block">
+            <a>{{new.news|linebreaks}}</a>
+            <div class="auth">
+                <a style="align-self: flex-end;">©{{new.author}}  {{new.pub_date}}</a>
+            </div>
+            <a type="button" class="btn btn-outline-success" href="{% url 'news:main' %}" style="margin: 1% 0 0 5%;">Назад</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

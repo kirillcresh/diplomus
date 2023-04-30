@@ -1,0 +1,28 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/main_login.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<a class="razmetka" style="color:black"><strong>Добавление товара</strong></a>
+<div class="div_form">
+    <div class="form">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-info" style="margin-left: 42%;" > Создать </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+.razmetka {
+    display:flex;
+    justify-content: center;
+    margin: 3vh 0 0 1vh;
+}
+
+
+picture {
+    width: 25%;
+}
+
+picture > img {
+    width:100%
+}
+
+.opis{
+    margin: 7vh 0 0 0 ;
+    width: 55%;
+}
+
+.opis > a {
+    font-size: 22px;
+    margin-left: 25px;
+}

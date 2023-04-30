@@ -1,0 +1,34 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Новости{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/news_index.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="news">
+    {% if news %}
+        {% for new in news %}
+            <div class="new" data-hint="Нажмите, чтобы прочитать">
+                <a href="{% url 'news:news_detail' new.id %}"> {{ new.title }} </a>
+                <a style="width: 90%;" href="{{ new.get_absolute_url }}">
+                    <picture>
+                        <img src="{{ new.picture.url }}">
+                    </picture>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <a>Жди новостей</a>
+    {% endif %}
+</div>
+
+{% endblock %}
+

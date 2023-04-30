@@ -1,0 +1,23 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/manage_order.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+{% for order in orders %}
+<div class="edit">
+    <a style="margin: 0 0 0 2%;" href="{{ order.get_absolute_url }}"> {{ order }}</a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-warning" href="{% url 'orders:edit_order' order.id %}"><i class="fa fa-pen"></i></a>
+    <a style="margin: 0 0 0 2%;" class="btn btn-danger" href="{% url 'orders:delete_order' order.id %}"><i class="fa fa-trash"></i></a>
+</div>
+{% endfor %}
+{% endblock %}
