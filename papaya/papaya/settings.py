@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'shop',
     'news',
     'orders',
+    'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -63,23 +65,23 @@ WSGI_APPLICATION = 'papaya.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DBNAME'),
-        'USER': os.getenv('DBUSER'),
-        'HOST': os.getenv('DBHOST'),
-        'PORT': os.getenv('DBPORT'),
-        'PASSWORD': os.getenv('DBPASSWORD'),
-        'default-character-set': 'utf8',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.getenv('DBNAME'),
+#         'USER': os.getenv('DBUSER'),
+#         'HOST': os.getenv('DBHOST'),
+#         'PORT': os.getenv('DBPORT'),
+#         'PASSWORD': os.getenv('DBPASSWORD'),
+#         'default-character-set': 'utf8',
+#     }
+# }
 
 
 # Password validation

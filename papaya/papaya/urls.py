@@ -9,6 +9,7 @@ urlpatterns = [
     path('shop/', include('shop.urls'), name='shop'),
     path('news/', include('news.urls'), name='news'),
     path('orders/', include('orders.urls'), name='orders'),
+    path('api/', include('api.urls'), name='api'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
