@@ -14,23 +14,39 @@ BOT_TOKEN = os.getenv('BOTTOKEN')
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
+DESC_COMMAND="""
+<b>/start</b> - <em>запуск бота</em>
+<b>Узнать категории</b> - <em>показывает категории товаров с магазина papayagame</em>"""
+
 
 @dp.message_handler(commands="start")
-async def start(message: types.Message):
+async def start_command(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    buttons = ["/start", "Покажи"]
+    buttons = ["/start", "/description", "Узнать категории магазина"]
     keyboard.add(*buttons)
-    await message.answer("Привет, залупий", reply_markup=keyboard)
+    await message.answer("<em>Привет, <b>папаёнок</b></em> 🥭", reply_markup=keyboard, parse_mode="HTML")
+    await message.delete()
 
 
-@dp.message_handler(Text(equals='Покажи'))
-async def pokaji(message: types.Message):
+@dp.message_handler(commands="description")
+async def desc_command(message: types.Message):
+    await message.answer("🫡 Я знаю следующие команды: \n" + DESC_COMMAND + "\n ...а также, пока ничего", parse_mode='HTML')
+    await message.delete()
+
+
+@dp.message_handler(Text(equals='Узнать категории'))
+async def categories_command(message: types.Message):
     result = requests.get('http://127.0.0.1:8000/api/category-list/')
-    reply = "Вот смотри \n"
+    reply = "Вот смотри: \n"
     for i in result.json():
-        reply += str(i["category"] + '\n')
-    await message.answer(reply)
+        reply += str('-' + i["category"] + '\n')
+    await message.reply(reply)
 
+
+@dp.message_handler(Text(equals='Найти товар'))
+async def echo(message: types.Message):
+    await message.reply('Можно найти товар: \n <b>1.</b><em>По названию игры или комбинации символов</em> \n '
+                        '<b>2.</b><em>Список товаров из определенной категории</em> \n <b>3.</b><em>По заданным критериям</em>', parse_mode='HTML')
 
 @dp.message_handler()
 async def echo(message: types.Message):
