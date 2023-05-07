@@ -22,6 +22,9 @@ class Games(models.Model):
     price = models.IntegerField(default=1000, verbose_name='Цена')
     is_active = models.BooleanField(default=True, verbose_name='Существует')
 
+    class Meta:
+        db_table = "games"
+
 
     def get_absolute_url(self):
         return f'/shop/{self.id}/'
