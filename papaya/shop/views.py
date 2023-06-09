@@ -1,29 +1,34 @@
 from datetime import *
-from django.shortcuts import render, redirect
-from .models import Games, Category, Comment
+
+from django.shortcuts import redirect, render, get_object_or_404
+
 from orders.models import OrderProducts, Orders
-from .forms import ShopForm, CommentForm
+
+from .forms import CommentForm, ShopForm
+from .models import Category, Comment, Games
 
 
 def index(request):
-    categories = Category.objects.all().order_by('-category')
-    sortir = str(request.GET.get('name'))
-    if sortir != 'None':
+    categories = Category.objects.all().order_by("-category")
+    sortir = str(request.GET.get("name"))
+    if sortir != "None":
         title = Category.objects.get(id=int(sortir)).category
-        games = Games.objects.filter(category_class=int(sortir), is_active=True).order_by('price')
+        games = Games.objects.filter(
+            category_class=int(sortir), is_active=True
+        ).order_by("price")
     else:
-        games = Games.objects.all().order_by('price')
-        title = 'Все товары'
+        games = Games.objects.all().order_by("price")
+        title = "Все товары"
     context = {
-        'games': games,
-        'categories': categories,
-        'title': title,
+        "games": games,
+        "categories": categories,
+        "title": title,
     }
-    return render(request, 'shop/index.html', context)
+    return render(request, "shop/index.html", context)
 
 
-def detail(request, Games_id):
-    game = Games.objects.get(pk=Games_id)
+def detail(request, games_id):
+    game = Games.objects.get(pk=games_id)
     comments = Comment.objects.all()
     if request.method == "POST":
         form = CommentForm(request.POST)
@@ -35,19 +40,19 @@ def detail(request, Games_id):
             com_fom.save()
             form = CommentForm()
             context = {
-                'game': game,
-                'form': form,
-                'comments': comments,
+                "game": game,
+                "form": form,
+                "comments": comments,
             }
-            return render(request, 'shop/shop_detail.html', context)
+            return render(request, "shop/shop_detail.html", context)
     form = CommentForm()
 
     context = {
-        'game': game,
-        'form': form,
-        'comments': comments,
+        "game": game,
+        "form": form,
+        "comments": comments,
     }
-    return render(request, 'shop/shop_detail.html', context)
+    return render(request, "shop/shop_detail.html", context)
 
 
 def add_to_cart(request, product_id):
@@ -58,7 +63,6 @@ def add_to_cart(request, product_id):
             cart = Orders.objects.get(client=request.user, is_cart=True)
         except:
             cart = Orders.objects.create(client=request.user)
-
 
         try:
             check = OrderProducts.objects.get(games_id=game, order_id=cart)
@@ -75,20 +79,20 @@ def add_to_cart(request, product_id):
             prod.save()
             cart.total += game.price
             cart.save()
-        return redirect('orders:cart_detail')
+        return redirect("orders:cart_detail")
     else:
-        return redirect('main:main')
+        return redirect("main:main")
 
 
 def manage_shop(request):
     if request.user.is_staff:
         games = Games.objects.all()
         context = {
-            'games': games,
+            "games": games,
         }
-        return render(request, 'shop/manage_shop.html', context)
+        return render(request, "shop/manage_shop.html", context)
     else:
-        return redirect('main:main')
+        return redirect("main:main")
 
 
 def create_shop(request):
@@ -98,12 +102,12 @@ def create_shop(request):
             if form.is_valid():
                 game_form = form.save(commit=False)
                 game_form.save()
-                return redirect('shop:manage_shop')
+                return redirect("shop:manage_shop")
         else:
             form = ShopForm()
-        return render(request, 'shop/create_shop.html', {'form': form})
+        return render(request, "shop/create_shop.html", {"form": form})
     else:
-        return redirect('main:main')
+        return redirect("main:main")
 
 
 def edit_shop(request, game_id):
@@ -114,18 +118,18 @@ def edit_shop(request, game_id):
             if form.is_valid():
                 game_form = form.save(commit=False)
                 game_form.save()
-                return redirect('shop:manage_shop')
+                return redirect("shop:manage_shop")
         else:
             form = ShopForm(instance=game_item)
-        return render(request, 'shop/edit_shop.html', {'form': form})
+        return render(request, "shop/edit_shop.html", {"form": form})
     else:
-        return redirect('main:main')
+        return redirect("main:main")
 
 
 def delete_shop(request, game_id):
     if request.user.is_staff:
         game_item = Games.objects.get(pk=game_id)
         game_item.delete()
-        return redirect('shop:manage_shop')
+        return redirect("shop:manage_shop")
     else:
-        return redirect('main:main')
+        return redirect("main:main")

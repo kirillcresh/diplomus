@@ -8,6 +8,7 @@ from django.http import HttpRequest
 from datetime import datetime
 from news.models import News
 
+
 class Login(LoginView):
     fields = ['username', 'password']
     template_name = 'main/login.html'
