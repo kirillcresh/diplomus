@@ -38,6 +38,13 @@
     </div>
     <div class="endprice">
         <a>Цена заказа: <b>{{ ord.total }} Р </b> </a>
+        <a>Пункт выдачи: {{ord.delivery_address}}</a>
+        <a>Дата доставки: {{ord.order_date}}</a>
+        <a>Способ оплаты: {{ord.payment_type}}</a>
+        {% if user.is_staff %}
+            <a>Имя клиента: {{ord.client}}</a>
+            <a>Телефон для связи: {{ord.phone}}</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

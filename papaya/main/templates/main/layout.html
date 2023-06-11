@@ -28,6 +28,7 @@
                 <div class="header_left">
                     <a type="button" class="btn btn-outline-success" href="{% url 'news:main' %}">Новости</a>
                     <a type="button" class="btn btn-outline-success" href="{% url 'shop:main' %}">Магазин</a>
+                    <a type="button" class="btn btn-outline-success" href="{% url 'roulette:main' %}?tickets=1">Рулетка</a>
                     <a type="button" class="btn btn-outline-success" href="{% url 'main:contacts' %}">Контакты</a>
                     <a type="button" class="btn btn-outline-success" href="{% url 'main:about' %}">О нас</a>
                     {% if user.is_staff %}

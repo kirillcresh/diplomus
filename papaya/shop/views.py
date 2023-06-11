@@ -10,16 +10,36 @@ from .models import Category, Comment, Games
 
 def index(request):
     categories = Category.objects.all().order_by("-category")
-    sortir = str(request.GET.get("name"))
-    if sortir != "None":
-        title = Category.objects.get(id=int(sortir)).category
-        games = Games.objects.filter(
-            category_class=int(sortir), is_active=True
-        ).order_by("price")
+    sort = str(request.GET.get("name"))
+    filtrate_by = str(request.GET.get("filtrate_by"))
+    boolka = 0
+    if sort != "None":
+        title = Category.objects.get(id=int(sort)).category
+        if filtrate_by == "price_up":
+            games = Games.objects.filter(
+                category_class=int(sort), is_active=True
+            ).order_by("price")
+        elif filtrate_by == "price_down":
+            games = Games.objects.filter(
+                category_class=int(sort), is_active=True
+            ).order_by("-price")
+        else:
+            games = Games.objects.filter(
+                category_class=int(sort), is_active=True
+            ).order_by("title")
+        boolka = 1
+        
     else:
-        games = Games.objects.all().order_by("price")
+        if filtrate_by == "price_up":
+            games = Games.objects.all().order_by("price")
+        elif filtrate_by == "price_down":
+            games = Games.objects.all().order_by("-price")
+        else:
+            games = Games.objects.all().order_by("title")
         title = "Все товары"
     context = {
+        "flag": sort,
+        "boolka": boolka,
         "games": games,
         "categories": categories,
         "title": title,
@@ -66,18 +86,21 @@ def add_to_cart(request, product_id):
 
         try:
             check = OrderProducts.objects.get(games_id=game, order_id=cart)
-            print(check)
+            if check.discount == 100:
+                return redirect("orders:cart_detail")
             check.amount += 1
+            check.discount = game.discount
             check.save()
-            cart.total += game.price
+            cart.total += check.get_discount_price()
             cart.save()
         except:
             prod = OrderProducts()
             prod.games_id = game
             prod.order_id = cart
             prod.amount = 1
+            prod.discount = game.discount
             prod.save()
-            cart.total += game.price
+            cart.total += prod.get_discount_price()
             cart.save()
         return redirect("orders:cart_detail")
     else:

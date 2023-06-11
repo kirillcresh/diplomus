@@ -28,18 +28,19 @@
                     <div class="pricing">
                     {% for game in games %}
                         {% if game == prod.games_id %}
-                            <a>{{ game.price }} Р x {{ prod.amount }}</a>
+                            <a>{{ prod.get_discount_price }} Р x {{ prod.amount }}</a>
+                            {% if prod.get_discount_price != 0 %}
                             <div class="buttons"><form method="POST">
                                     <a methods="POST" type="button" class="btn btn-outline-nfo"
                                        href="{% url 'orders:add_item' prod.id %}">
                                         <i class="fa fa-plus"></i></a></form>
-                                <form method="POST1">
-                                    <a methods="POST1" type="button" class="btn btn-outline-nfo"
+                                <form method="POST">
+                                    <a methods="POST" type="button" class="btn btn-outline-nfo"
                                        href="{% url 'orders:remove_item' prod.id %}">
                                         <i class="fa fa-minus"></i></a></form>
                             </div>
-                            <a>{% widthratio game.price 1 prod.amount %} Р </a>
-
+                            {% endif %}
+                            <a>{% widthratio prod.get_discount_price 1 prod.amount %} Р </a>
                         {% endif %}
                     {% endfor %}
                     </div>

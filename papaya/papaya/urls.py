@@ -10,7 +10,7 @@ urlpatterns = [
     path('news/', include('news.urls'), name='news'),
     path('orders/', include('orders.urls'), name='orders'),
     path('api/', include('api.urls'), name='api'),
-
+    path('roulette/', include('roulette.urls'), name='roulette'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

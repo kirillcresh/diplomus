@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Orders, OrderProducts
 from shop.models import Games
-from orders.forms import OrderForm
+from orders.forms import OrderForm, OrderCreate
+from datetime import date, datetime, timedelta
 
 
 def index(request):
     if request.user.is_active:
-        orders = Orders.objects.filter(is_cart=False).order_by("-total")
+        orders = Orders.objects.filter(is_cart=False, client=request.user).order_by("-total")
         context = {
             "orders": orders,
         }
@@ -17,15 +18,22 @@ def index(request):
 
 def detail(request, Orders_id):
     if request.user.is_active:
-        ord = Orders.objects.get(pk=Orders_id)
-        order_products = OrderProducts.objects.filter(order_id=ord)
-        games = Games.objects.all()
-        context = {
-            "ord": ord,
-            "order_products": order_products,
-            "games": games,
-        }
-        return render(request, "orders/orders_detail.html", context)
+        try:
+            if request.user.is_staff:
+                ord = Orders.objects.get(pk=Orders_id)
+            else:
+                ord = Orders.objects.get(pk=Orders_id, client=request.user)
+            order_products = OrderProducts.objects.filter(order_id=ord)
+            games = Games.objects.all()
+            context = {
+                "ord": ord,
+                "order_products": order_products,
+                "games": games,
+            }
+            return render(request, "orders/orders_detail.html", context)
+        except:
+            return redirect("main:main")
+
     else:
         return redirect("main:main")
 
@@ -37,6 +45,8 @@ def cart_detail(request):
         except:
             cart = Orders.objects.create(client=request.user)
         order_prods = OrderProducts.objects.filter(order_id=cart.id)
+        for prod in order_prods:
+            print(prod.get_discount_price())
         games = Games.objects.all()
         context = {
             "cart": cart,
@@ -78,10 +88,20 @@ def remove_item(request, id):
 
 def order_create(request):
     if request.user.is_active:
-        order = Orders.objects.get(client=request.user, is_cart=True)
-        order.is_cart = False
-        order.save()
-        return redirect("orders:main")
+        if request.method == "POST":
+            form = OrderCreate(request.POST)
+            if form.is_valid():
+                order = Orders.objects.get(client=request.user, is_cart=True)
+                today = date.today()
+                today = str(today)
+                dt = datetime.strptime(today, '%Y-%m-%d')
+                order_date = str(dt + timedelta(days=10))
+                order.order_date = order_date[:10]
+                order.is_cart = False
+                order.save()
+                return render(request, "orders/cart_detail.html", {"form": form})
+        form = OrderCreate()
+        return render(request, "orders/create_order.html", {"form": form})
     else:
         return redirect("main:main")
 
@@ -126,7 +146,7 @@ def edit_order(request, order_id):
 
 def delete_order(request, order_id):
     if request.user.is_staff:
-        order_item = Games.objects.get(pk=order_id)
+        order_item = Orders.objects.get(pk=order_id)
         order_item.delete()
         return redirect("orders:manage_order")
     else:

@@ -7,7 +7,17 @@ class OrderForm(ModelForm):
 
     class Meta:
         model = Orders
-        fields = [ 'total']
+        fields = ['total', 'delivery_address', 'phone']
 
     def __init__(self, *args, **kwargs):
         super(OrderForm, self).__init__(*args, **kwargs)
+
+
+class OrderCreate(ModelForm):
+
+    class Meta:
+        model = Orders
+        fields = ['delivery_address', 'phone']
+
+    def __init__(self, *args, **kwargs):
+        super(OrderCreate, self).__init__(*args, **kwargs)

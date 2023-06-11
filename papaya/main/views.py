@@ -7,6 +7,7 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.http import HttpRequest
 from datetime import datetime
 from news.models import News
+from .models import Profile
 
 
 class Login(LoginView):
@@ -29,6 +30,10 @@ def register(request):
             reg_form.save()
             reg_form.backend = 'django.contrib.auth.backends.ModelBackend'
             login(request, reg_form)
+
+            prof = Profile.objects.create(client_id=request.user)
+            prof.save()
+
             return render(request, 'main/index.html', {'form': form})
     else:
         form = UserCreationForm()

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'orders',
     'api',
     'rest_framework',
+    'roulette',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,5 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_REDIRECT_URL = reverse_lazy('main:main')
 LOGOUT_REDIRECT_URL = reverse_lazy('main:main')
+
+BASE_URL = os.getenv('BASE_URL')

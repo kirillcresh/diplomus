@@ -23,8 +23,19 @@
             <a href="{% url 'shop:main' %}"> Все товары </a>
         {% for category in categories %}
                 <a href="{% url 'shop:main' %}?name={{ category.id }}"> {{ category.category }} </a>
-
         {% endfor %}
+            <br> Сортировка товаров:
+            {% if boolka == 1 %}
+            <a class="btn btn-outline-danger"
+                   href="{% url 'shop:main' %}?name={{ flag }}&filtrate_by=price_up">По возрастанию цены</a>
+            <a class="btn btn-outline-danger"
+                   href="{% url 'shop:main' %}?name={{ flag }}&filtrate_by=price_down">По убыванию цены</a>
+            {% else %}
+            <a class="btn btn-outline-danger"
+                   href="{% url 'shop:main' %}?filtrate_by=price_up">По возрастанию цены</a>
+            <a class="btn btn-outline-danger"
+                   href="{% url 'shop:main' %}?filtrate_by=price_down">По убыванию цены</a>
+            {% endif %}
             </div>
     </div>
 
@@ -40,7 +51,11 @@
                     </picture>
                 <div class="title">
                 <a href="{% url 'shop:shop_detail' game.id %}"> {{ game.title }} </a> </br>
-                    <a>{{game.price}}Р</a>
+                    {% if game.discount > 0 %}
+                    <a><strike>{{game.price}}₽</strike> {{game.get_discount_price}}₽</a>
+                    {% else %}
+                    <a>{{game.price}}₽</a>
+                    {% endif %}
                 </div>
                 {% if user.is_active %}
                 <form method="POST">
