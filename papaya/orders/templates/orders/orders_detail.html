@@ -27,7 +27,7 @@
                     <img src="{{ game.picture.url }}">
                 </picture>
                     <a>Кол-во:{{ prod.amount }}</a>
-                    <a>Стоимость: {% widthratio game.price 1 prod.amount %} Р </a>
+                    <a>Стоимость: {% widthratio game.price 1 prod.amount %} ₽ </a>
             </div>
             <div class="content_block">
 
@@ -37,8 +37,9 @@
         {% endfor %}
     </div>
     <div class="endprice">
-        <a>Цена заказа: <b>{{ ord.total }} Р </b> </a>
-        <a>Пункт выдачи: {{ord.delivery_address}}</a>
+        <a><u>Цена заказа:</u> <b>{{ ord.total }} ₽ </b> </a>
+        <a>Пункт выдачи: {{delivery_point.address}}</a>
+        <a>Время работы пункта: {{ delivery_point.work_hours }} </a>
         <a>Дата доставки: {{ord.order_date}}</a>
         <a>Способ оплаты: {{ord.payment_type}}</a>
         {% if user.is_staff %}

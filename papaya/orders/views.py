@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Orders, OrderProducts
+from .models import Orders, OrderProducts, DeliveryPoint
 from shop.models import Games
 from orders.forms import OrderForm, OrderCreate
 from datetime import date, datetime, timedelta
@@ -23,17 +23,18 @@ def detail(request, Orders_id):
                 ord = Orders.objects.get(pk=Orders_id)
             else:
                 ord = Orders.objects.get(pk=Orders_id, client=request.user)
+            delivery_point = DeliveryPoint.objects.get(name=ord.delivery_address)
             order_products = OrderProducts.objects.filter(order_id=ord)
             games = Games.objects.all()
             context = {
                 "ord": ord,
+                "delivery_point": delivery_point,
                 "order_products": order_products,
                 "games": games,
             }
             return render(request, "orders/orders_detail.html", context)
         except:
             return redirect("main:main")
-
     else:
         return redirect("main:main")
 

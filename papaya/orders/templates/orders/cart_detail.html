@@ -28,7 +28,7 @@
                     <div class="pricing">
                     {% for game in games %}
                         {% if game == prod.games_id %}
-                            <a>{{ prod.get_discount_price }} Р x {{ prod.amount }}</a>
+                            <a>{{ prod.get_discount_price }} ₽ x {{ prod.amount }}</a>
                             {% if prod.get_discount_price != 0 %}
                             <div class="buttons"><form method="POST">
                                     <a methods="POST" type="button" class="btn btn-outline-nfo"
@@ -40,7 +40,7 @@
                                         <i class="fa fa-minus"></i></a></form>
                             </div>
                             {% endif %}
-                            <a>{% widthratio prod.get_discount_price 1 prod.amount %} Р </a>
+                            <a>{% widthratio prod.get_discount_price 1 prod.amount %} ₽ </a>
                         {% endif %}
                     {% endfor %}
                     </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="endprice">
             <a><b>Общая цена:</b></a>
-            <a>{{ cart.total }} Р </a>
+            <a>{{ cart.total }} ₽ </a>
         </div>
     </div>
     <div class="button">

@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}Рулетка{% endblock %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'main/css/roulette.css' %}">
+{% endblock %}
+
+{% block style %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+А вот и рулетка
+
+{% if item %}
+    {{ item }}
+    <a class="btn btn-info" href="{% url 'roulette:prize' item.id %}">Получить</a>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Крутить</button>
+</form>
+{% if user.is_active %}
+<form method="POST">
+    <a class="btn btn-outline-info" href="{% url 'roulette:add_ticket' ticks %}">
+    <i class="fa fa-plus"></i></a>
+        <a>{{ ticks }}</a>
+    <a class="btn btn-outline-info" href="{% url 'roulette:remove_ticket' ticks %}">
+    <i class="fa fa-minus"></i></a>
+</form>
+<a>СеЙчАс У вАс БиЛеТиКов: {{ profile.tickets }}</a><br>
+<a>Стоимость билетиков: {% widthratio 1000 1 ticks %}</a><br>
+<a class="btn btn-info" href="{% url 'roulette:buy_tickets' ticks %}">Купить</a>
+{% endif %}
+{% endblock %}
