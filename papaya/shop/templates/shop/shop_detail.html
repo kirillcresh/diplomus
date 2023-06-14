@@ -19,11 +19,18 @@
         <div class="games_block">
             <a><b>{{game.title}}</b></a>
         </div>
-        <div class="kartinka">
+        <div class="pict">
+            <img src="{% static 'main/img/players.png' %}"> {{game.min_players}}-{{game.max_players}}
+            <img src="{% static 'main/img/clock.png' %}"> {{game.game_time}}  {{game.recommend_age}}+
+            {{game}}
             <picture>
                 <img src="{{ game.picture.url }}">
                 <div class="price">
-                    <a><b>{{game.price}} Р</b></a>
+                   {% if game.discount > 0 %}
+                    <a><strike>{{game.price}}₽</strike> <b>{{game.get_discount_price}}₽</b></a>
+                    {% else %}
+                    <a><b>{{game.price}}₽</b></a>
+                    {% endif %}
                 </div>
                 {% if user.is_active %}
                 <div class="button">
@@ -37,7 +44,9 @@
         </div>
         <div class="games_block">
             <div class="text">
-                <a><b>{{game.games|linebreaks}}</b></a>
+                <a><b>{{game.games|linebreaks}}</b></a> <br>
+                <a><b>{{game.components|linebreaks}}</b></a> <br>
+                Производитель: {{game.vendor}}
             </div>
         </div>
     </div>

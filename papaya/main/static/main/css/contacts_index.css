@@ -13,7 +13,7 @@
     font-size: 35px;
 }
 
-.podval {
+.footer {
     display: flex;
     justify-content: center;
     height: 4vh;
@@ -21,7 +21,7 @@
     background: #f07373;
 }
 
-.podval > a {
+.footer > a {
     margin: 0 0 0 2%;
     font-size: 24px;
     color: green;

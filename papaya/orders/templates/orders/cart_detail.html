@@ -28,6 +28,7 @@
                     <div class="pricing">
                     {% for game in games %}
                         {% if game == prod.games_id %}
+                            <a> <img src="{{ game.picture.url }}"></a>
                             <a>{{ prod.get_discount_price }} ₽ x {{ prod.amount }}</a>
                             {% if prod.get_discount_price != 0 %}
                             <div class="buttons"><form method="POST">

@@ -1,9 +1,5 @@
 .edit{
     display: flex;
-    justify-content: space-between;
     width: 30%;
-    align-items: center;
-    border: 3px solid green;
-    border-radius: 10px;
-    margin: 1% 0 0 3%;
+    margin: 2% 0 0 3%;
 }
