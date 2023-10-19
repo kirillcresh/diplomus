@@ -65,7 +65,7 @@ def add_item(request, id):
         game.amount += 1
         game.save()
         cart = Orders.objects.get(client=request.user, is_cart=True)
-        cart.total += Games.objects.get(title=game.games_id).price
+        cart.total += Games.objects.get(title=game.games_id).get_discount_price()
         cart.save()
         return redirect("orders:cart_detail")
     else:
@@ -78,7 +78,7 @@ def remove_item(request, id):
         game.amount -= 1
         game.save()
         cart = Orders.objects.get(client=request.user, is_cart=True)
-        cart.total -= Games.objects.get(title=game.games_id).price
+        cart.total -= Games.objects.get(title=game.games_id).get_discount_price()
         cart.save()
         if game.amount < 1:
             game.delete()
@@ -111,8 +111,10 @@ def cart_delete(request):
     if request.user.is_active:
         cart = Orders.objects.get(client=request.user, is_cart=True)
         prods = OrderProducts.objects.filter(order_id=cart)
+        cart.total = 0
         for prod in prods:
             prod.delete()
+        cart.save()
         return redirect("orders:cart_detail")
     else:
         return redirect("main:main")

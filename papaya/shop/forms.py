@@ -17,13 +17,14 @@ class CommentForm(ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['text',]
+        fields = ['text', 'rating']
 
     def __init__(self, *args, **kwargs):
         super(CommentForm, self).__init__(*args, **kwargs)
-        self.fields['text'].help_text = ''
+        self.fields['text'].help_text = 'Здесь пишут отзыв'
         self.fields['text'].label = ''
         self.fields['text'].widget = forms.TextInput(attrs={
             'placeholder': 'Опишите ваши впечатления от покупки',
             'class': 'form-control',
         })
+

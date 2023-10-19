@@ -37,7 +37,7 @@ class Orders(models.Model):
     phone = models.CharField(max_length=50, default='88002200220')
     delivery_address = models.ForeignKey(DeliveryPoint, on_delete=models.CASCADE, null=True)
     payment_type = models.ForeignKey(PaymentType, on_delete=models.CASCADE, null=True)
-    order_date = models.CharField(max_length=255, default='25-06-2023')
+    order_date = models.CharField(max_length=50, default='25-06-2023')
 
     def get_absolute_url(self):
         return f'/orders/{self.id}/'

@@ -9,20 +9,23 @@ from django.conf import settings
 
 
 def index(request):
-    tickets = str(request.GET.get("tickets"))
-    profile = Profile.objects.get(client_id=request.user)
-    context = {"profile": profile}
-    if tickets.isnumeric():
-        ticks = int(tickets)
-        context["ticks"] = ticks
-    if request.method == "POST" and profile.tickets > 0:
-        items = list(Games.objects.all())
-        item = random.choice(items)
-        context["item"] = item
-        profile.tickets -= 1
-        profile.save()
+    if request.user.is_active:
+        tickets = str(request.GET.get("tickets"))
+        profile = Profile.objects.get(client_id=request.user)
+        context = {"profile": profile}
+        if tickets.isnumeric():
+            ticks = int(tickets)
+            context["ticks"] = ticks
+        if request.method == "POST" and profile.tickets > 0:
+            items = list(Games.objects.all())
+            item = random.choice(items)
+            context["item"] = item
+            profile.tickets -= 1
+            profile.save()
+            return render(request, "roulette/index.html", context)
         return render(request, "roulette/index.html", context)
-    return render(request, "roulette/index.html", context)
+    else:
+        return render(request, "roulette/index.html")
 
 
 def add_ticket(request, ticks):
@@ -39,10 +42,13 @@ def remove_ticket(request, ticks):
 
 
 def buy_tickets(request, ticks):
-    profile = Profile.objects.get(client_id=request.user)
-    profile.tickets += ticks
-    profile.save()
-    return redirect(f"{settings.BASE_URL}/roulette/?tickets=1")
+    if request.user.is_active:
+        profile = Profile.objects.get(client_id=request.user)
+        profile.tickets += ticks
+        profile.save()
+        return redirect(f"{settings.BASE_URL}/roulette/?tickets=1")
+    else:
+        return render(request, "roulette/index.html")
 
 
 def prize(request, game_id):

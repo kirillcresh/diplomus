@@ -19,10 +19,12 @@
         <div class="games_block">
             <a><b>{{game.title}}</b></a>
         </div>
-        <div class="pict">
-            <img src="{% static 'main/img/players.png' %}"> {{game.min_players}}-{{game.max_players}}
-            <img src="{% static 'main/img/clock.png' %}"> {{game.game_time}}  {{game.recommend_age}}+
-            {{game}}
+            <div class="pict">
+                <div class="icons">
+                    {{game.recommend_age}}+ лет
+                <img src="{% static 'main/img/players.png' %}" style="width: 30px; height: 30px;"> {{game.min_players}}-{{game.max_players}}
+                <img src="{% static 'main/img/clock.png' %}" style="width: 30px; height: 30px;"> {{game.game_time}}
+            </div>
             <picture>
                 <img src="{{ game.picture.url }}">
                 <div class="price">
@@ -44,9 +46,9 @@
         </div>
         <div class="games_block">
             <div class="text">
-                <a><b>{{game.games|linebreaks}}</b></a> <br>
-                <a><b>{{game.components|linebreaks}}</b></a> <br>
-                Производитель: {{game.vendor}}
+                <p><b>{{game.games|linebreaks}}</b></p> <br>
+                <p><b>Компоненты: {{game.components|linebreaks}}</b></p> <br>
+                <p>Производитель: {{game.vendor}}</p>
             </div>
         </div>
     </div>
@@ -58,8 +60,8 @@
             {% for comment in comments %}
                 {% if comment in game.comment_set.all %}
                     <div class="user_comment">
-                        <a><strong>{{ comment.author }}</strong> {{ comment.pub_date }}</a>
-                        <a></br>{{ comment.text|linebreaks }}</a>
+                        <a><strong>{{ comment.author }}</strong> {{ comment.pub_date }} : <br> {{ comment.text }}
+                        <br> Оценка товара: {{ comment.rating }}</a>
                     </div>
                 {% endif %}
             {% endfor %}
@@ -73,7 +75,7 @@
                     <form method="POST">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="btn btn-info" style="margin-left: 15%;" > Оставить комментарий </button>
+                        <button type="submit" class="btn btn-info" style="margin-left: 23%;" > Оставить комментарий </button>
                     </form>
                 </div>
             </div>

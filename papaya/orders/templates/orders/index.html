@@ -20,6 +20,7 @@
             <div class="zaka">
                 <a href="{% url 'orders:orders_detail' order.id %}">{{ order }}</a>
                 <a> на сумму: {{ order.total }} ₽</a>
+                <a>Доставка: <br>{{ order.order_date }}</a>
             </div>
         {% endfor %}
     {% else %}

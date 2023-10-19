@@ -1,5 +1,6 @@
 import random
 import string
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import *
@@ -7,7 +8,7 @@ from datetime import *
 
 class Category(models.Model):
     category = models.CharField(max_length=60)
-    description = models.TextField(default='Эта категория топ', verbose_name='Описание категории')
+    description = models.TextField(default='Эта категория вам понравится', verbose_name='Описание категории')
 
     def __str__(self):
         return self.category
@@ -54,7 +55,7 @@ class Comment(models.Model):
     game = models.ForeignKey(Games, blank=True, null=True, on_delete=models.SET_NULL)
     text = models.CharField(null=False, blank=False, max_length=500, verbose_name='Комментарий')
     pub_date = models.DateTimeField(default=datetime.now)
-    rating = models.IntegerField(default=5, null=False)
+    rating = models.IntegerField(default=5, null=False, validators=[MinValueValidator(1), MaxValueValidator(5)])
 
     class Meta:
         verbose_name = 'Комментарий'

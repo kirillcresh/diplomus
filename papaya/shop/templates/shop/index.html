@@ -31,9 +31,9 @@
             <a class="btn btn-outline-danger"
                    href="{% url 'shop:main' %}?name={{ flag }}&filtrate_by=price_down">По убыванию цены</a>
             {% else %}
-            <a class="btn btn-outline-danger"
+            <a class="btn btn-outline-primary"
                    href="{% url 'shop:main' %}?filtrate_by=price_up">По возрастанию цены</a>
-            <a class="btn btn-outline-danger"
+            <a class="btn btn-outline-primary"
                    href="{% url 'shop:main' %}?filtrate_by=price_down">По убыванию цены</a>
             {% endif %}
             </div>

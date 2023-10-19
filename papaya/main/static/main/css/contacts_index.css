@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-.telo {
+.main {
     width: 100%;
     height: 89vh;
     display: flex;
@@ -18,7 +18,6 @@
     justify-content: center;
     height: 4vh;
     width: 100%;
-    background: #f07373;
 }
 
 .footer > a {

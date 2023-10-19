@@ -13,27 +13,49 @@
 {% endblock %}
 
 {% block content %}
-А вот и рулетка
+<div class="roulette">
+    <p>А вот и рулетка</p>
+        <div class="picture">
+            <picture>
+                <img src="{% static 'main/img/monopoly.png' %}" style="width:700px;">
+            </picture>
+        </div>
+    <div class="descr">
+        <p>Вы азартный человек? А может вы думаете, что вы везучий человек и вам везет всегда и везде?
+            Тогда испытайте свою удачу в Papaya Рулетке! Покупайте любое количество билетиков и играйте.
+        Вам может выпасть абсолютно любой товар с магазина, даже самый дорогой. После получения выигрыша товар появится
+        у вас в корзине и вы сможете оформить его бесплатно на доставку. Покупайте и выигрывайте вместе с PapayaGames!</p>
+    </div>
+    <div class="win">
+    {% if item %}
+        <b>Ваш приз:  </b>{{ item }}
+    </div>
+            <a class="btn btn-info" href="{% url 'roulette:prize' item.id %}" style="margin-top: 20px;
+            margin-bottom: 20px;">Получить</a>
+    {% endif %}
 
-{% if item %}
-    {{ item }}
-    <a class="btn btn-info" href="{% url 'roulette:prize' item.id %}">Получить</a>
-{% endif %}
-
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-success">Крутить</button>
+    <form method="POST">
+        {% csrf_token %}
+        {% if user.is_active %}
+            <button type="submit" class="btn btn-success">Крутить</button>
 </form>
+</div>
 {% if user.is_active %}
-<form method="POST">
-    <a class="btn btn-outline-info" href="{% url 'roulette:add_ticket' ticks %}">
-    <i class="fa fa-plus"></i></a>
-        <a>{{ ticks }}</a>
-    <a class="btn btn-outline-info" href="{% url 'roulette:remove_ticket' ticks %}">
-    <i class="fa fa-minus"></i></a>
-</form>
-<a>СеЙчАс У вАс БиЛеТиКов: {{ profile.tickets }}</a><br>
-<a>Стоимость билетиков: {% widthratio 1000 1 ticks %}</a><br>
-<a class="btn btn-info" href="{% url 'roulette:buy_tickets' ticks %}">Купить</a>
+    <div class="tickets">
+        <a>Сейчас у вас билетиков: {{ profile.tickets }}</a><br>
+        <a>Стоимость билетиков: {% widthratio 2000 1 ticks %}</a><br>
+        <form method="POST">
+            <a href="{% url 'roulette:add_ticket' ticks %}">
+            <i class="fa fa-plus"></i></a>
+                <a>{{ ticks }}</a>
+            <a href="{% url 'roulette:remove_ticket' ticks %}">
+            <i class="fa fa-minus"></i></a>
+        </form>
+        <a class="btn btn-info" href="{% url 'roulette:buy_tickets' ticks %}">Купить</a>
+
+    </div>
+{% endif %}
+{% else %}
+    <p>Чтобы крутить рулетку нужно быть авторизованным!</p>
 {% endif %}
 {% endblock %}

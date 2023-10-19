@@ -8,12 +8,10 @@
 }
 .div_form {
     margin-top: 2%;
-    border-radius: 40px;
     margin-left: 32%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: #6fe3e3e3;
     width: 35%;
     flex-direction: column;
 }
@@ -22,7 +20,6 @@
     line-height: 40px;
     border-radius: 20px;
     color: black;
-    background: #cb77f2e3;
     margin-top: 5%;
     width: 350px;
 }

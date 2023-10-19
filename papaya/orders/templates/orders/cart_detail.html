@@ -19,31 +19,30 @@
 <div class="orders">
     {% if order_prods %}
     <div class="containers">
-        <div class="orders">
             {% for prod in order_prods %}
                 <div class="razmetka">
                     <div class="t_id">
                         <a>{{ prod.games_id }} </a>
-                    </div>
-                    <div class="pricing">
-                    {% for game in games %}
-                        {% if game == prod.games_id %}
-                            <a> <img src="{{ game.picture.url }}"></a>
-                            <a>{{ prod.get_discount_price }} ₽ x {{ prod.amount }}</a>
-                            {% if prod.get_discount_price != 0 %}
-                            <div class="buttons"><form method="POST">
-                                    <a methods="POST" type="button" class="btn btn-outline-nfo"
-                                       href="{% url 'orders:add_item' prod.id %}">
-                                        <i class="fa fa-plus"></i></a></form>
-                                <form method="POST">
-                                    <a methods="POST" type="button" class="btn btn-outline-nfo"
-                                       href="{% url 'orders:remove_item' prod.id %}">
-                                        <i class="fa fa-minus"></i></a></form>
-                            </div>
-                            {% endif %}
-                            <a>{% widthratio prod.get_discount_price 1 prod.amount %} ₽ </a>
-                        {% endif %}
-                    {% endfor %}
+                        <div class="pricing">
+                            {% for game in games %}
+                                {% if game == prod.games_id %}
+                                    <a> <img src="{{ game.picture.url }}" style="width: 100px;"></a>
+                                    <a>{{ prod.get_discount_price }} ₽ x {{ prod.amount }}</a>
+                                    {% if prod.get_discount_price != 0 %}
+                                    <div class="buttons"><form method="POST">
+                                            <a methods="POST" type="button" class="btn btn-outline-nfo"
+                                               href="{% url 'orders:add_item' prod.id %}">
+                                                <i class="fa fa-plus"></i></a></form>
+                                        <form method="POST">
+                                            <a methods="POST" type="button" class="btn btn-outline-nfo"
+                                               href="{% url 'orders:remove_item' prod.id %}">
+                                                <i class="fa fa-minus"></i></a></form>
+                                    </div>
+                                    {% endif %}
+                                    <a>{% widthratio prod.get_discount_price 1 prod.amount %} ₽ </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             <div><hr></div>

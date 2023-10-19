@@ -41,7 +41,13 @@
 .pricing {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+
+}
+
+.pricing > img {
+    width: 50px;
+    overflow: hidden;
+
 }
 
 .buttons {
